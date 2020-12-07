@@ -1,0 +1,14 @@
+D:\repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.csprojAssemblyReference.cache
+D:\repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.csproj.CoreCompileInputs.cache
+D:\repos\Logs\taghrid\Data\DatabaseGeneric\bin\Debug\netstandard2.0\LogSystemTutorial.deps.json
+D:\repos\Logs\taghrid\Data\DatabaseGeneric\bin\Debug\netstandard2.0\LogSystemTutorial.dll
+D:\repos\Logs\taghrid\Data\DatabaseGeneric\bin\Debug\netstandard2.0\LogSystemTutorial.pdb
+D:\repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.dll
+D:\repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.pdb
+D:\silverkey repos\Logs\taghrid\Data\DatabaseGeneric\bin\Debug\netstandard2.0\LogSystemTutorial.deps.json
+D:\silverkey repos\Logs\taghrid\Data\DatabaseGeneric\bin\Debug\netstandard2.0\LogSystemTutorial.dll
+D:\silverkey repos\Logs\taghrid\Data\DatabaseGeneric\bin\Debug\netstandard2.0\LogSystemTutorial.pdb
+D:\silverkey repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.csprojAssemblyReference.cache
+D:\silverkey repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.csproj.CoreCompileInputs.cache
+D:\silverkey repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.dll
+D:\silverkey repos\Logs\taghrid\Data\DatabaseGeneric\obj\Debug\netstandard2.0\LogSystemTutorial.pdb

@@ -1,0 +1,63 @@
+﻿@page
+@model razor_demo.Pages.Logs.MainModel
+
+
+<div class="text-center">
+    <h1>Logs</h1>
+</div>
+<div class="my-5">
+    <h3 class="d-inline" style="border-right:1px solid #dee2e6;border-top:1px solid #dee2e6;border-left:1px solid #dee2e6">Today's logs</h3>
+    <form method="post">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Task description</th>
+                    <th>Project</th>
+                    <th>Time</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var entry in Model.AllEntries)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m=>entry.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => entry.Project)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => entry.TimeSpent)
+                    </td>
+                    <td>
+                        <div class="d-flex justify-content-around row">
+                            <div class="btn btn-success">Edit</div>
+                            <div class="btn btn-danger">Delete</div>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</div>
+<div class="mt-5">
+    <h3 class="d-inline" style="border-right:1px solid #dee2e6;border-top:1px solid #dee2e6;border-left:1px solid #dee2e6">Yesterday's logs</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Task description</th>
+                <th>Project</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

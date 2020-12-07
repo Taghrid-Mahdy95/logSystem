@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - LogSystem</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="v-100 m-0">
+
+    <div class="row w-100">
+        <div class="col-2 vh-100 p-0" style="background-color:#1b6ec2">
+            <nav class="navbar p-0 w-100">
+                <ul class="navbar-nav w-100">
+                    <li class="nav-item border-bottom" >
+                        <h2>
+                            <label class="nav-link text-light py-5 text-center">Views</label>
+                        </h2>
+                    </li>
+                    <li class="nav-item">
+                        <h4>
+                            <a class="nav-link text-light text-center" href="../Logs/Logs">Main Page</a>
+                        </h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4>
+                            <a class="nav-link text-light text-center" href="../Logs/History">Log's history</a>
+                        </h4>
+                    </li>
+                    <li class="nav-item">
+                        <h4>
+                            <a class="nav-link text-light text-center" href="../Projects/Projects">Projects</a>
+                        </h4>
+                    </li>
+                    <li class="nav-item px-5" style="margin-top:230px">
+                            <a class="btn nav-link px-4" href="../Account/signout" style="background-color:gainsboro">Sign out</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="col-8">
+            <main role="main">
+                @RenderBody()
+            </main>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="./src/bootstrap-input-spinner.js"></script>
+    <script>
+        $("input[type='number']").inputSpinner()
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

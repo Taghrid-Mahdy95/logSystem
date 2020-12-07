@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<packages>
+  <package id="jQuery" version="1.8.0" targetFramework="net452" />
+  <package id="jQuery.Validation" version="1.8.0.1" targetFramework="net452" />
+  <package id="Microsoft.jQuery.Unobtrusive.Validation" version="3.2.11" targetFramework="net452" />
+  <package id="Npgsql" version="2.2.5" targetFramework="net452" />
+  <package id="SD.LLBLGen.Pro.DQE.Access" version="5.6.3-hotfix-20200225" targetFramework="net452" />
+  <package id="SD.LLBLGen.Pro.DQE.PostgreSql" version="5.6.3-hotfix-20200225" targetFramework="net452" />
+  <package id="SD.LLBLGen.Pro.ORMSupportClasses" version="5.6.3-hotfix-20200225" targetFramework="net452" />
+  <package id="System.Linq.Expressions" version="4.3.0" targetFramework="net452" />
+  <package id="System.Linq.Queryable" version="4.3.0" targetFramework="net452" />
+  <package id="System.Runtime.Serialization.Json" version="4.3.0" targetFramework="net452" />
+</packages>

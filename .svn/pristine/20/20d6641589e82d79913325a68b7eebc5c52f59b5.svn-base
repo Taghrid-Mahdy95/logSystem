@@ -1,0 +1,56 @@
+﻿@page
+@model razor_demo.Pages.IndexModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Log's system</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container mt-5 w-50 bg-light" style="border:1px solid #333">
+        <div class="row">
+            <button class="col-6 p-4 active" style="border:1px solid #333">Sign up</button>
+            <button class="col-6 p-4 bg-light" style="border:1px solid #333">Login</button>
+        </div>
+        <div class=" form-group mt-5">
+            <form method="post">
+                <div>
+                    <label style="margin-left:200px">Name</label>
+                    <input class="form-control w-50" style="margin-left: 200px" type="text" placeholder="Enter your Name" asp-for="newUser.Name" />
+                    <span asp-validation-for="newUser.Name" class="text-danger"></span>
+                </div>
+                <div>
+                    <label class="mt-3" style="margin-left:200px">Email</label>
+                    <input class="form-control w-50" style="margin-left: 200px" type="text" placeholder="Enter your Email" asp-for="newUser.Email" />
+                    <span asp-validation-for="newUser.Email"></span>
+                </div>
+                <div>
+                    <label class="mt-3" style="margin-left:200px">Password</label>
+                    <input class="form-control w-50 " style="margin-left:200px" type="password" placeholder="Enter your Password" asp-for="newUser.Password" />
+                    <span asp-validation-for="newUser.Password"></span>
+                </div>
+                <div>
+                    <button class="btn btn-primary mt-5" type="submit" style="margin-left:350px">SIGN UP</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="./src/bootstrap-input-spinner.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        $("input[type='number']").inputSpinner()
+    </script>
+</body>
+</html>

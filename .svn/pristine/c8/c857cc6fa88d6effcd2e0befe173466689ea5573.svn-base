@@ -1,0 +1,37 @@
+﻿using logs_system.tutorial.DatabaseSpecific;
+using logs_system.tutorial.EntityClasses;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using logs_system.tutorial.Linq;
+using logs_system.tutorial.HelperClasses;
+using SD.LLBLGen.Pro.LinqSupportClasses;
+
+namespace razor_demo.Pages.Logs
+{
+    public class MainModel : PageModel
+    {
+        [BindProperty] public EntityCollection<EntryEntity> AllEntries{ set; get; }
+        [BindProperty] public EntityCollection<ProjectEntity> AllProjects { set; get; }
+        public void OnGet()
+        {
+            using (var adapter = new DataAccessAdapter("Database=logs_system;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                var metaData = new LinqMetaData(adapter);
+                AllEntries = metaData.Entry.Execute<EntityCollection<EntryEntity>>();
+                AllProjects = metaData.Project.Execute<EntityCollection<ProjectEntity>>();
+            }
+        }
+        public void OnPost()
+        {
+        }
+        public RedirectToPageResult OnPostDelete(int Id)
+        {
+            using (var adapter = new DataAccessAdapter("Database=logs_system;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                EntryEntity deletedEntry= new EntryEntity(Id);
+                adapter.DeleteEntity(deletedEntry);
+            }
+            return RedirectToPage("Main");
+        }
+    }
+}

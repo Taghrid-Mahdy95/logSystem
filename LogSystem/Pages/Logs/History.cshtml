@@ -1,0 +1,50 @@
+﻿@page
+@model LogSystem.Pages.Logs.HistoryModel
+@{
+    ViewData["Title"] = "History";
+}
+
+<div class="text-center">
+    <h1>@ViewData["Title"]</h1>
+</div>
+<div class="mt-5">
+    <h3 class="d-inline" style="border-right:1px solid #dee2e6;border-top:1px solid #dee2e6;border-left:1px solid #dee2e6">Yesterday's logs</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Task description</th>
+                <th>Name</th>
+                <th>Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entry in Model.Entries)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(m => entry.Description)
+                    </td>
+                    <td>
+                        @foreach (var user in Model.AllUsers)
+                        {
+                            if (user.Id == entry.UserId)
+                            {
+                                @Html.DisplayFor(n => user.Name)
+                            }
+                        }
+                    </td>
+                    <td>
+                        @foreach (var project in Model.AllProjects)
+                        {
+                            if (project.Id == entry.ProjectId)
+                            {
+                                string fileName = System.IO.Path.GetFileName(project.Logo);
+                                <img src="~/Images/@fileName" style="width:70px;height:50px" alt="Project logo" />
+                            }
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

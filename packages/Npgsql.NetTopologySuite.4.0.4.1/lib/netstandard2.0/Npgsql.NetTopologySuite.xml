@@ -1,0 +1,306 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Npgsql.NetTopologySuite</name>
+    </assembly>
+    <members>
+        <member name="F:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.EncodingType">
+            <summary>
+            The byte order to use when writing geometries.
+            </summary>
+            <see cref="P:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.ByteOrder"/>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.#ctor">
+            <summary>
+            Initializes writer with LittleIndian byte order.
+            </summary>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.#ctor(GeoAPI.IO.ByteOrder)">
+            <summary>
+            Initializes writer with the specified byte order.
+            </summary>
+            <param name="encodingType">Encoding type</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IGeometry)">
+            <inheritdoc cref="M:GeoAPI.IO.IGeometryWriter`1.Write(GeoAPI.Geometries.IGeometry)"/>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IGeometry,System.IO.Stream)">
+            <inheritdoc cref="M:GeoAPI.IO.IGeometryWriter`1.Write(GeoAPI.Geometries.IGeometry,System.IO.Stream)"/>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IGeometry,GeoAPI.Geometries.Ordinates)">
+            <summary>
+            Writes a binary encoded PostGIS of the given <paramref name="geometry"/> to to an array of bytes.
+            </summary>
+            <param name="geometry">The geometry</param>
+            <param name="ordinates">The ordinates of each geometry's coordinate. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> area always written.</param>
+            <returns>An array of bytes.</returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IGeometry,GeoAPI.Geometries.Ordinates,System.IO.Stream)">
+            <summary>
+            Writes a binary encoded PostGIS of the given <paramref name="geometry"/> to <paramref name="stream"/>.
+            </summary>
+            <param name="geometry">The geometry</param>
+            <param name="ordinates">The ordinates of each geometry's coordinate. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> area always written.</param>
+            <param name="stream">The stream to write to</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IGeometry,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Writes a binary encoded PostGIS or the given <paramref name="geometry"/> using the provided <paramref name="writer"/>.
+            </summary>
+            <param name="geometry">The geometry to write.</param>
+            <param name="ordinates">The ordinates of each geometry's coordinate. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> area always written.</param>
+            <param name="byteOrder">The byte order.</param>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.WriteHeader(Npgsql.NetTopologySuite.PostGisGeometryType,System.Int32,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Writes the binary encoded PostGIS header.
+            </summary>
+            <param name="byteOrder">The byte order specified.</param>
+            <param name="type">The PostGIS geometry type.</param>
+            <param name="srid">The spatial reference of the geometry</param>
+            <param name="ordinates"></param>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IPoint,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+             <summary>
+            
+             </summary>
+             <param name="byteOrder"></param>
+             <param name="point"></param>
+             <param name="ordinates"></param>
+             <param name="writer"></param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(System.Collections.Generic.IList{GeoAPI.Geometries.IGeometry},GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Write an Array of "full" Geometries
+            </summary>
+            <param name="geometries"></param>
+            <param name="ordinates"></param>
+            <param name="byteOrder"></param>
+            <param name="writer"></param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.ILineString,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+             <summary>
+            
+             </summary>
+             <param name="lineString"></param>
+             <param name="ordinates"></param>
+             <param name="byteOrder">The byte order.</param>
+             <param name="writer"></param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.ILinearRing,GeoAPI.Geometries.Ordinates,System.IO.BinaryWriter)">
+             <summary>
+            
+             </summary>
+             <param name="linearRing"></param>
+             <param name="ordinates"></param>
+             <param name="writer"></param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IPolygon,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Writes a 'Polygon' to the stream.
+            </summary>
+            <param name="polygon">The polygon to write.</param>
+            <param name="ordinates">The ordinates to write. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> are always written.</param>
+            <param name="byteOrder">The byte order.</param>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IMultiPoint,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Writes a 'MultiPoint' to the stream.
+            </summary>
+            <param name="multiPoint">The polygon to write.</param>
+            <param name="ordinates">The ordinates to write. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> are always written.</param>
+            <param name="byteOrder">The byte order.</param>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IMultiLineString,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Writes a 'MultiLineString' to the stream.
+            </summary>
+            <param name="multiLineString">The polygon to write.</param>
+            <param name="ordinates">The ordinates to write. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> are always written.</param>
+            <param name="byteOrder">The byte order.</param>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IMultiPolygon,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Writes a 'MultiPolygon' to the stream.
+            </summary>
+            <param name="multiPolygon">The polygon to write.</param>
+            <param name="ordinates">The ordinates to write. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> are always written.</param>
+            <param name="byteOrder">The byte order.</param>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.Write(GeoAPI.Geometries.IGeometryCollection,GeoAPI.Geometries.Ordinates,GeoAPI.IO.ByteOrder,System.IO.BinaryWriter)">
+            <summary>
+            Writes a 'GeometryCollection' to the stream.
+            </summary>
+            <param name="geomCollection">The polygon to write.</param>
+            <param name="ordinates">The ordinates to write. <see cref="F:GeoAPI.Geometries.Ordinates.XY"/> are always written.</param>
+            <param name="byteOrder">The byte order.</param>
+            <param name="writer">The writer to use.</param>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetBytes(GeoAPI.Geometries.IGeometry,System.Int32)">
+            <summary>
+            Supplies a byte array for the  length for Byte Stream.
+            </summary>
+            <param name="geometry">The geometry that needs to be written.</param>
+            <param name="coordinateSpace">The size that is needed per ordinate.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.IGeometry,System.Int32)">
+            <summary>
+            Gets the required size for the byte stream's buffer to hold the geometry information.
+            </summary>
+            <param name="geometry">The geometry to write</param>
+            <param name="coordinateSpace">The size for each ordinate entry.</param>
+            <returns>The size</returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.IGeometryCollection,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.IMultiPolygon,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.IMultiLineString,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.IMultiPoint,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.IPolygon,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(System.Collections.Generic.IList{GeoAPI.Geometries.IGeometry},System.Int32)">
+            <summary>
+            Write an Array of "full" Geometries
+            </summary>
+            <param name="container"></param>
+            <param name="coordinateSpace">The size needed for each coordinate</param>
+            <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.ICoordinateSequence,System.Int32)">
+            <summary>
+            Calculates the amount of space needed to write this coordinate sequence.
+            </summary>
+            <param name="sequence">The sequence</param>
+            <param name="coordinateSpace">The size needed for each coordinate</param>
+            <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.ILineString,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.ILinearRing,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="M:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.GetByteStreamSize(GeoAPI.Geometries.IPoint,System.Int32)">
+             <summary>
+            
+             </summary>
+             <param name="geometry"></param>
+             <param name="coordinateSpace">The size needed for each coordinate</param>
+             <returns></returns>
+        </member>
+        <member name="P:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.HandleSRID">
+            <inheritdoc cref="P:GeoAPI.IO.IGeometryIOSettings.HandleSRID"/>
+        </member>
+        <member name="P:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.AllowedOrdinates">
+            <inheritdoc cref="P:GeoAPI.IO.IGeometryIOSettings.AllowedOrdinates"/>
+        </member>
+        <member name="P:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.HandleOrdinates">
+            <inheritdoc cref="P:GeoAPI.IO.IGeometryIOSettings.HandleOrdinates"/>
+        </member>
+        <member name="P:Npgsql.NetTopologySuite.NpgsqlPostGisWriter.ByteOrder">
+            <inheritdoc cref="P:GeoAPI.IO.IBinaryGeometryWriter.ByteOrder"/>
+        </member>
+        <member name="F:Npgsql.NetTopologySuite.PostGisGeometryType.Point">
+            <summary>
+            The OGIS geometry type number for points.
+            </summary>
+        </member>
+        <member name="F:Npgsql.NetTopologySuite.PostGisGeometryType.LineString">
+            <summary>
+            The OGIS geometry type number for lines.
+            </summary>
+        </member>
+        <member name="F:Npgsql.NetTopologySuite.PostGisGeometryType.Polygon">
+            <summary>
+            The OGIS geometry type number for polygons.
+            </summary>
+        </member>
+        <member name="F:Npgsql.NetTopologySuite.PostGisGeometryType.MultiPoint">
+            <summary>
+            The OGIS geometry type number for aggregate points.
+            </summary>
+        </member>
+        <member name="F:Npgsql.NetTopologySuite.PostGisGeometryType.MultiLineString">
+            <summary>
+            The OGIS geometry type number for aggregate lines.
+            </summary>
+        </member>
+        <member name="F:Npgsql.NetTopologySuite.PostGisGeometryType.MultiPolygon">
+            <summary>
+            The OGIS geometry type number for aggregate polygons.
+            </summary>
+        </member>
+        <member name="F:Npgsql.NetTopologySuite.PostGisGeometryType.GeometryCollection">
+            <summary>
+            The OGIS geometry type number for feature collections.
+            </summary>
+        </member>
+        <member name="T:Npgsql.NpgsqlNetTopologySuiteExtensions">
+            <summary>
+            Extension allowing adding the NetTopologySuite plugin to an Npgsql type mapper.
+            </summary>
+        </member>
+        <member name="M:Npgsql.NpgsqlNetTopologySuiteExtensions.UseNetTopologySuite(Npgsql.TypeMapping.INpgsqlTypeMapper,GeoAPI.Geometries.ICoordinateSequenceFactory,GeoAPI.Geometries.IPrecisionModel,GeoAPI.Geometries.Ordinates,System.Boolean)">
+            <summary>
+            Sets up NetTopologySuite mappings for the PostGIS types.
+            </summary>
+            <param name="mapper">The type mapper to set up (global or connection-specific).</param>
+            <param name="coordinateSequenceFactory">The factory which knows how to build a particular implementation of ICoordinateSequence from an array of Coordinates.</param>
+            <param name="precisionModel">Specifies the grid of allowable points.</param>
+            <param name="handleOrdinates">Specifies the ordinates which will be handled. Not specified ordinates will be ignored.
+            If <see cref="F:GeoAPI.Geometries.Ordiantes.None" /> is specified, an actual value will be taken from
+            the <see cref="P:GeoAPI.Geometries.ICoordinateSequenceFactory.Ordinates"/> property of <paramref name="coordinateSequenceFactory"/>.</param>
+            <param name="geographyAsDefault">Specifies that the geography type is used for mapping by default.</param>
+        </member>
+    </members>
+</doc>

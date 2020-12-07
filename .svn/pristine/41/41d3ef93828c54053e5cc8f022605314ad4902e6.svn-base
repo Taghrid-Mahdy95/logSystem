@@ -1,0 +1,50 @@
+﻿@page
+@model razor_demo.Pages.Logs.ProjectsModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="text-center">
+    <h1>Projects</h1>
+</div>
+<div class="my-5">
+    <h3 class="d-inline" style="border:1px solid #dee2e6">Company's projects</h3>
+    <a asp-page="NewProject" asp-route-Description="task" class="btn float-right text-white mb-1" style="background-color:#1b6ec2">Add new project</a>
+    <form method="post">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Logo</th>
+                    <th>
+                        <img src="~/Images/download.jpg" alt="Project logo" />
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var project in Model.AllProjects)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => project.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(n => project.Description) 
+                        </td>
+                        <td>
+                            <img src="@Url.Content("~")/@project.Logo" alt="Project logo"/>
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-around row">
+                                <a asp-page="EditEntry" asp-route-id="@project.Id" class="btn btn-success">Edit</a>
+                                <button asp-page-handler="Delete" asp-route-Id="@project.Id" class="btn btn-danger">De-activate</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</div>
+

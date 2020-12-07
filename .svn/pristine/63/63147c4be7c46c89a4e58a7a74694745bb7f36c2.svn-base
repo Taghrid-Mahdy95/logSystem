@@ -1,0 +1,51 @@
+﻿@page
+@model razor_demo.Pages.Logs.NewEntryModel
+
+<div class="text-center">
+    <h1>Today's date</h1>
+</div>
+<form method="post">
+    <div class="form-group pt-3">
+        <h3>Task description</h3>
+        <textarea class="form-control" rows="5" asp-for="newEntryEntity.Description"></textarea>
+        <span asp-validation-for="newEntryEntity.Description"></span>
+        <div class="input-group mt-3 mb-3 py-3">
+
+            <div class="w-25">
+                <label for="Projects">Active projects</label>
+                <select class="form-control" asp-for="@Model.SelectedProject" asp-items="@(new SelectList(Model.AllProjects,"Id","Name"))">
+                    <option value="">All Projects</option>
+                </select>
+            </div>
+            <!--
+    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+        Active projects
+    </button>
+        -->
+            <!--
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Project A</a>
+        <a class="dropdown-item" href="#">Project B</a>
+        <a class="dropdown-item" href="#">Project C</a>
+    </div>
+        -->
+            <!--
+    <div class="dropdown-menu">
+        foreach (var project in Model.AllProjects)
+        {
+            <a class="dropdown-item">
+                Html.DisplayFor(m => project.Name)
+            </a>
+        }
+    </div>
+        -->
+        </div>
+        <div class="mb-5">
+            <input value="15" min="15" max="180" step="15" asp-for="newEntryEntity.TimeSpent" />
+            <label>minutes</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Primary</button>
+    </div>
+</form>
+
+

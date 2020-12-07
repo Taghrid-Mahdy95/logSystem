@@ -1,0 +1,16 @@
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.csprojAssemblyReference.cache
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.csproj.CoreCompileInputs.cache
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.dll.config
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.deps.json
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.dll
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.pdb
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.dll
+D:\repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.pdb
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.dll.config
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.deps.json
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.dll
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\bin\Debug\netstandard2.0\LogSystemTutorialDBSpecific.pdb
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.csprojAssemblyReference.cache
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.csproj.CoreCompileInputs.cache
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.dll
+D:\silverkey repos\Logs\taghrid\Data\DatabaseSpecific\obj\Debug\netstandard2.0\LogSystemTutorialDBSpecific.pdb

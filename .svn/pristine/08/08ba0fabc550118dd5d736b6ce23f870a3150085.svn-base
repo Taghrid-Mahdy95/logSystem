@@ -1,0 +1,22 @@
+﻿@page
+@model razor_demo.Pages.Logs.ProjectsModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="text-center">
+    <h1>Projects</h1>
+</div>
+<form enctype="multipart/form-data" method="post">
+    <dl>
+        <dt>
+            <label>choose file</label>
+        </dt>
+        <dd>
+            <input asp-for="@Model.FileToUpload" type="file" />
+            <span asp-validation-for="@Model.FileToUpload"></span>
+        </dd>
+    </dl>
+    <input asp-page-handler="Upload" class="btn" type="submit" value="Upload" />
+</form>
+

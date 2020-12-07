@@ -1,0 +1,8 @@
+﻿@page
+@model LogSystem.Pages.SignoutModel
+@{
+    ViewData["Title"] = "signout";
+}
+
+<h1>Signout</h1>
+

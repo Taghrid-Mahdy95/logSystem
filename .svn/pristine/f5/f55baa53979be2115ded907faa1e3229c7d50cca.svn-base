@@ -1,0 +1,8 @@
+﻿@page
+@model razor_demo.Pages.SignoutModel
+@{
+    ViewData["Title"] = "signout";
+}
+
+<h1>signout</h1>
+

@@ -1,0 +1,25 @@
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using logs_system.tutorial.EntityClasses;
+
+
+namespace razor_demo.Pages
+{
+    public class IndexModel : PageModel
+    {
+        [BindProperty]
+        public UserEntity newUser { set; get; }
+        public IndexModel()
+        {
+            newUser = new UserEntity();
+        }
+        public void OnGet()
+        {
+
+        }
+        public void Onpost()
+        {
+
+        }
+    }
+}

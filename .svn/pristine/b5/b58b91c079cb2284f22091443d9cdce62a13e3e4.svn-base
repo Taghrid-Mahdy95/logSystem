@@ -1,0 +1,33 @@
+﻿@page
+@model razor_demo.Pages.Logs.ProjectsModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="text-center">
+    <h1>Projects</h1>
+</div>
+<div class="mt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <button class="btn btn-primary text-center" style="margin-top:100px;margin-left:480px">Add</button>
+</div>
+

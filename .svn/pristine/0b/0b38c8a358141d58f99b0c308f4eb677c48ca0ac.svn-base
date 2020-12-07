@@ -1,0 +1,39 @@
+﻿@page
+@model razor_demo.Pages.Logs.EditEntryModel
+@{
+    ViewData["Title"] = "EditEntry";
+}
+
+<div class="text-center">
+    <h1>Edit Task</h1>
+</div>
+<form method="post">
+    <div class="form-group pt-3">
+        <h3>Task description</h3>
+        <textarea class="form-control" rows="5" asp-for="UpdatedEntry.Description" placeholder="@Model.OldEntry.Description"></textarea>
+        <span asp-validation-for="UpdatedEntry.Description"></span>
+        <div class="input-group mt-3 mb-3 py-3">
+
+            <div class="w-25">
+                <label for="Projects">Active projects</label>
+                <select class="form-control" asp-for="@Model.SelectedProjectId" asp-items="@Model.AllProjectsOptions">
+                    @if (Model.fetched == true)
+                    {
+                        <option value="@Model.SelectedProject.Name">@Model.SelectedProject.Name</option>
+                    }
+                    else
+                    {
+                        <option value="">All Projects</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="mb-5">
+            <input value=@Model.OldEntry.TimeSpent min="15" max="180" step="15" asp-for="UpdatedEntry.TimeSpent" />
+            <label>minutes</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Primary</button>
+    </div>
+</form>
+
+

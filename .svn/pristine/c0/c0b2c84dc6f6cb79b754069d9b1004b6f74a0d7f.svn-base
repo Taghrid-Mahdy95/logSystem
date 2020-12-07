@@ -1,0 +1,29 @@
+﻿@page
+@model razor_demo.Pages.Logs.HistoryModel
+@{
+    ViewData["Title"] = "History";
+}
+
+<div class="text-center">
+    <h1>Logs history</h1>
+</div>
+<div class="mt-5">
+    <h3 class="d-inline" style="border-right:1px solid #dee2e6;border-top:1px solid #dee2e6;border-left:1px solid #dee2e6">Logs</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Task description</th>
+                <th>Name</th>
+                <th>Project</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

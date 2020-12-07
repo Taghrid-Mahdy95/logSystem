@@ -1,0 +1,59 @@
+﻿using logs_system.tutorial.DatabaseSpecific;
+using logs_system.tutorial.EntityClasses;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using logs_system.tutorial.Linq;
+using logs_system.tutorial.HelperClasses;
+using SD.LLBLGen.Pro.LinqSupportClasses;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using System.Linq;
+using System;
+
+namespace razor_demo.Pages.Logs
+{
+    public class MainModel : PageModel
+    {
+        [BindProperty] public EntityCollection<EntryEntity> AllEntries{ set; get; }
+        [BindProperty] public EntityCollection<EntryEntity> TodayEntries { set; get; }
+        [BindProperty] public EntityCollection<EntryEntity> YesterdayEntries { set; get; }
+        [BindProperty] public EntityCollection<ProjectEntity> AllProjects { set; get; }
+        public MainModel()
+        {
+            TodayEntries = new EntityCollection<EntryEntity>();
+            YesterdayEntries = new EntityCollection<EntryEntity>();
+        }
+        public void OnGet()
+        {
+            var loggedUserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            using (var adapter = new DataAccessAdapter("Database=logsSystem;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                var metaData = new LinqMetaData(adapter);
+                var q = from entries in metaData.Entry
+                        where entries.UserId == long.Parse(loggedUserId)
+                        select entries;
+                AllEntries = q.Execute<EntityCollection<EntryEntity>>();
+                AllProjects = metaData.Project.Execute<EntityCollection<ProjectEntity>>();
+            }
+            foreach (var entry in AllEntries)
+            {
+                if (entry.Date.Day == DateTime.Now.Day)
+                    TodayEntries.Add(entry);
+                else if (entry.Date.Day == DateTime.Now.AddDays(-1).Day)
+                    YesterdayEntries.Add(entry);
+            }
+        }
+        public void OnPost()
+        {
+        }
+        public RedirectToPageResult OnPostDelete(int Id)
+        {
+            using (var adapter = new DataAccessAdapter("Database=logsSystem;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                EntryEntity deletedEntry = new EntryEntity(Id);
+                adapter.DeleteEntity(deletedEntry);
+            }
+            return RedirectToPage("Logs");
+        }
+    }
+}

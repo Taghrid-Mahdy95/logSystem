@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using logs_system.tutorial.DatabaseSpecific;
+using logs_system.tutorial.EntityClasses;
+using logs_system.tutorial.HelperClasses;
+using logs_system.tutorial.Linq;
+using SD.LLBLGen.Pro.LinqSupportClasses;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+
+namespace razor_demo.Pages.Logs
+{
+    public class NewEntryModel : PageModel
+    {
+        [BindProperty] public EntryEntity NewEntryEntity { set; get; }
+        [BindProperty] public EntityCollection<ProjectEntity> AllProjects { set; get; }
+        [BindProperty] public  string SelectedProjectId { set; get; }
+        [BindProperty] public List<SelectListItem> AllProjectsOptions { set; get; }
+
+        public NewEntryModel(IHttpContextAccessor httpContextAccessor)
+        {
+            NewEntryEntity = new EntryEntity();
+            AllProjectsOptions = new List<SelectListItem>();
+        }
+
+        public void OnGet()
+        {
+            using (var adapter = new DataAccessAdapter("Database=logsSystem;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                var metaData = new LinqMetaData(adapter);
+                AllProjects = metaData.Project.Execute<EntityCollection<ProjectEntity>>();
+            }
+            foreach(ProjectEntity project in AllProjects)
+            {
+                if(project.Status == true)
+                {
+                    SelectListItem item = new SelectListItem();
+                    item.Value = project.Id.ToString();
+                    item.Text = project.Name;
+                    AllProjectsOptions.Add(item);
+                }
+            }
+
+        }
+        public RedirectToPageResult OnPost()
+        {
+            var LoggedUserId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            NewEntryEntity.Date = DateTime.Now;
+            NewEntryEntity.UserId = long.Parse(LoggedUserId);
+
+            if(SelectedProjectId != null)
+                NewEntryEntity.ProjectId = long.Parse(SelectedProjectId);
+
+            using (var adapter = new DataAccessAdapter("Database=logsSystem;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                adapter.SaveEntity(NewEntryEntity,true);
+            }
+            return RedirectToPage("Logs");
+        }
+    }
+}

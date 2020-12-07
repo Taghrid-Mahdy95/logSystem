@@ -1,0 +1,12 @@
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+
+namespace razor_demo.Pages.Logs
+{
+    public class ProjectsModel : PageModel
+    {
+        public void OnGet()
+        {
+
+        }
+    }
+}

@@ -1,0 +1,39 @@
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc;
+using logs_system.tutorial.HelperClasses;
+using logs_system.tutorial.EntityClasses;
+using logs_system.tutorial.DatabaseSpecific;
+using logs_system.tutorial.Linq;
+using SD.LLBLGen.Pro.LinqSupportClasses;
+
+namespace razor_demo.Pages.Logs
+{
+    public class ProjectsModel : PageModel
+    {
+        [BindProperty] public EntityCollection<ProjectEntity> AllProjects { set; get; }
+
+        public void OnGet()
+        {
+            using (var adapter = new DataAccessAdapter("Database=logsSystem;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                var metadata = new LinqMetaData(adapter);
+                AllProjects = metadata.Project.Execute<EntityCollection<ProjectEntity>>();
+            }
+        }
+        public void OnPost()
+        {
+        }
+        public RedirectToPageResult OnPostDeActivate(int Id)
+        {
+            var deActivatedProject = new ProjectEntity();
+            deActivatedProject.Id = Id;
+            deActivatedProject.Status = false;
+            deActivatedProject.IsNew = false;
+            using (var adapter = new DataAccessAdapter("Database=logsSystem;Server=localhost;Port=5432;User Id=postgres;Password=1234567"))
+            {
+                adapter.SaveEntity(deActivatedProject);
+            }
+            return RedirectToPage("Projects");
+        }
+    }
+}

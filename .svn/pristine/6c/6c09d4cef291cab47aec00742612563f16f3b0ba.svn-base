@@ -1,0 +1,70 @@
+﻿@page
+@model razor_demo.Pages.Logs.MainModel
+
+
+<div class="text-center">
+    <h1>Logs</h1>
+</div>
+<div class="my-5">
+    <h3 class="d-inline" style="border:1px solid #dee2e6">Today's logs</h3>
+    <a asp-page="NewEntry" asp-route-Description="task" class="btn float-right text-white mb-1" style="background-color:#1b6ec2">Add new entry</a>
+    <form method="post">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Task description</th>
+                    <th>Project</th>
+                    <th>Time</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var entry in Model.AllEntries)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => entry.Description)
+                        </td>
+                        <td>
+                            @foreach(var project in Model.AllProjects)
+                            {
+                                if(project.Id == entry.ProjectId)
+                                {
+                                    @Html.DisplayFor(n=> project.Name)
+                                }
+                            }
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => entry.TimeSpent)
+                        </td>
+                        <td>
+                            <div class="d-flex justify-content-around row">
+                                <a asp-page="EditEntry" asp-route-id="@entry.Id" class ="btn btn-success">Edit</a>
+                                <button asp-page-handler="Delete" asp-route-Id="@entry.Id" class="btn btn-danger">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </form>
+</div>
+<div class="mt-5">
+    <h3 class="d-inline" style="border-right:1px solid #dee2e6;border-top:1px solid #dee2e6;border-left:1px solid #dee2e6">Yesterday's logs</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Task description</th>
+                <th>Project</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

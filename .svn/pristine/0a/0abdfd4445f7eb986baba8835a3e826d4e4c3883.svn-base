@@ -1,0 +1,38 @@
+﻿@page
+@model EntryModel
+
+<div class="text-center">
+    <h1>Today's date</h1>
+</div>
+<form method="post">
+    <div class="form-group pt-3">
+        <h3>Task description</h3>
+        <textarea class="form-control" rows="5" asp-for="newEntry.Description"></textarea>
+        <div class="input-group mt-3 mb-3 py-3">
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                Active projects
+            </button>
+         <!--
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="#">Project A</a>
+        <a class="dropdown-item" href="#">Project B</a>
+        <a class="dropdown-item" href="#">Project C</a>
+    </div>
+        -->
+            <div class="dropdown-menu">
+                @foreach (var project in Model.AllProjects)
+                {
+                    <a class="dropdown-item" asp-page-handler="addProject">
+                            @Html.DisplayFor(m => project.Name)
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="mb-5">
+            <input value="15" min="15" max="180" step="15" asp-for="newEntry.TimeSpent" />
+            <label>minutes</label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-5">Primary</button>
+    </div>
+</form>
+
